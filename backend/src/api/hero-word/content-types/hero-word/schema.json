@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "hero_words",
+  "info": {
+    "singularName": "hero-word",
+    "pluralName": "hero-words",
+    "displayName": "Hero word",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Word": {
+      "displayName": "word variant",
+      "type": "component",
+      "repeatable": true,
+      "component": "word.word-variant"
+    }
+  }
+}

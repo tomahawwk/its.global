@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_word_word_variants",
+  "info": {
+    "displayName": "word variant",
+    "icon": "american-sign-language-interpreting",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Word": {
+      "type": "string"
+    }
+  }
+}
