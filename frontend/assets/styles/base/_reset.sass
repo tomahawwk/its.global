@@ -1,0 +1,61 @@
+/**
+ * RESET
+ */
+
+
+
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title],
+dfn[title]
+  cursor: help
+
+
+
+
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u,
+ins
+  text-decoration: none
+
+
+
+
+/**
+ * Apply faux underlines to inserted text via `border-bottom`.
+ */
+ins
+  border-bottom: 1px solid
+
+
+
+
+/**
+ * Remove links underline
+ */
+a
+  &:-webkit-any-link
+    text-decoration: none
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active
+    text-decoration: none
+
+
+textarea
+  resize: none
+
+
+/**
+ * Address
+ */
+address
+  font-style: unset

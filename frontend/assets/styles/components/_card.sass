@@ -1,0 +1,86 @@
+.card
+	height: 100%
+	width: 100%
+	padding: 24px 24px 30px
+	position: relative
+	display: flex
+	flex-direction: column
+	background-color: var(--bg)
+	border-radius: 8px 0 0 8px
+	border: 1px solid #F8F8F8
+	box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.16)
+	cursor: grab
+
+	+media-up(lg)
+		padding: var(--side-padding) calc(var(--side-padding) * 2) calc(var(--side-padding) * 1.8)
+
+.card:active
+	cursor: grabbing
+
+.card__badge
+	text-transform: uppercase
+	letter-spacing: 0.08em
+	font-size: .625rem
+	margin-bottom: 4rem
+
+	+media-up(md)
+		margin-bottom: 5rem
+
+	+media-up(lg)
+		font-size: .875rem
+		margin-bottom: 6rem
+
+.card__heading
+	margin-top: 0rem
+
+.card__text
+	margin-top: 1rem
+	margin-bottom: 1rem
+	font-size: 14px
+	line-height: 1.64
+
+	+media-up(md)
+		margin-top: 2rem
+		margin-bottom: 1.5rem
+
+	+media-up(lg)
+		margin-top: 3rem
+		margin-bottom: 2.5rem
+		font-size: 18px
+		line-height: 1.88
+
+.card__image
+	// margin-top: 3.75rem
+	margin-top: auto
+	display: block
+
+.cards-stack
+	display: flex
+	position: relative
+	z-index: 1
+
+	> div
+		min-width: 80vw
+		width: 80vw
+
+		+media-up(lg)
+			min-width: 50vw
+			width: 50vw
+
+	div:nth-child(1)
+		z-index: 10
+
+	div:nth-child(2)
+		z-index: 9
+
+	div:nth-child(3)
+		z-index: 8
+
+	div:nth-child(4)
+		z-index: 7
+
+	div:nth-child(5)
+		z-index: 6
+
+	div:nth-child(6)
+		z-index: 5

@@ -1,0 +1,19 @@
+.header
+	visibility: hidden
+	height: var(--header-height)
+	display: flex
+	top: 0
+	left: 0
+	width: 100vw
+	position: fixed
+	align-items: center
+	z-index: 1
+	justify-content: space-between
+	transition: transform .6s $ease-out
+	transform: translateY(-100%)
+
+	&.is-active
+		transform: translateY(0)
+
+.header > *
+	visibility: visible

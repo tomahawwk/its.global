@@ -1,0 +1,12 @@
+.collapse-enter-active,
+.collapse-leave-active
+  overflow: hidden
+  will-change: height, opacity
+  transition: height var(--duration-xl) $cubic-io, opacity var(--duration-xl) $cubic-io, padding var(--duration-xl) $cubic-io
+  opacity: 1
+
+.collapse-enter,
+.collapse-leave-to
+  height: 0 !important
+  padding: 0 !important
+  opacity: 0 !important

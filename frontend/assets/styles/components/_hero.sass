@@ -1,0 +1,335 @@
+.hero
+  --hero-side-padding: var(--side-padding)
+  --hero-bottom-padding: 55px
+  margin-top: min(95px, 12vh)
+  padding: var(--header-height) var(--hero-side-padding) var(--hero-bottom-padding)
+  width: 100%
+  display: flex
+  align-items: center
+
+  +media-up(sm)
+    --hero-side-padding: clamp(32px, 9.64vw, 148px)
+    --hero-bottom-padding: 7.2vw
+
+  +media-up(md)
+    margin-top: 0
+    height: 100vh
+
+.hero-title
+  display: grid
+  +yo('font-size', (425px: 100px, 1440px: 144px))
+  font-weight: 300
+  line-height: 1.06
+  letter-spacing: -.06em
+  cursor: default
+
+  small
+    transition-delay: .6s
+    +yo('font-size', (375px: 28px, 1920px: 48px))
+
+  +media-up(lg)
+    line-height: .95
+
+  +media-up(xl)
+    line-height: .88
+
+.hero-title__part
+  display: flex
+  align-items: flex-end
+  gap: 20px
+
+  @media (min-width: $md)
+    gap: 27px
+
+  span,
+  .hero-title__word,
+  small
+    +transitionY
+
+  &:nth-child(1)
+    span
+      transition-delay: .5s
+
+  &:nth-child(2)
+    span
+      transition-delay: .6s
+
+  &:nth-child(3)
+    .hero-title__image
+      &:before
+        transition-delay: .7s
+      img
+        transition-delay: .6s
+    .hero-title__word
+      transition-delay: .7s
+
+.hero-title__image
+  display: none
+  width: 20vw
+  height: 16vh
+  position: relative
+  border-radius: 8px
+  overflow: hidden
+
+  img
+    width: 100%
+    object-fit: cover
+    top: 0
+    bottom: 0
+    margin: auto
+    position: absolute
+    transition-delay: .5s
+    transition-duration: 1s
+    transition-timing-function: $ease-out
+    transform: scale(1)
+
+  &:before
+    content: ''
+    width: 110%
+    top: -5%
+    left: -5%
+    height: 110%
+    transition-delay: .6s
+    +transitionScaleXReverse
+    background: white
+    position: absolute
+    z-index: 1
+
+  @media (min-width: $md)
+    display: block
+
+.hero-title__image--big
+  width: 22.8vw
+
+.hero-title__part
+  white-space: nowrap
+
+  @media (min-width: $md)
+    align-items: baseline
+
+.hero-title__part--1
+  // font-size: 100px
+  margin-left: -10px
+
+  @media (min-width: $md)
+    // font-size: 144px
+
+.hero-title__part--2
+  margin-left: -6px
+
+  +media-down(xl)
+    +yo('font-size', (475px: 48px, 1440px: 144px))
+    letter-spacing: -.055em
+
+.hero-title__part--3
+  +yo('font-size', (425px: 86px, 1440px: 144px))
+  letter-spacing: -.06em
+  gap: 0px
+
+  @media (min-width: $md)
+    align-items: baseline
+    gap: 17px
+
+    .hero-title__image
+      // align-self: center
+      position: relative
+      bottom: -16px
+      margin-top: -20px
+
+.hero-title__rotate
+  font-size: 30px
+  rotate: -90deg
+  position: relative
+  top: -0.7em
+  left: -0.1em
+  letter-spacing: -.06em
+
+  @media (min-width: $md)
+    rotate: 0deg
+    font-size: 48px
+    top: 0
+    left: 0
+
+.hero-title__word
+  position: relative
+  white-space: nowrap
+
+.hero-title__word:before
+  +pseudo-block(auto, 10px)
+  right: 5px
+  bottom: -6px
+  left: 18px
+  background: rgba(0,0,0,.05)
+  transition-delay: .75s
+  transition-property: transform
+  transform-origin: left
+  +transitionScaleX
+
+  +media-up(md)
+    height: 6px
+    bottom: -8px
+
+.hero-title__word:hover:before
+  visibility: hidden
+
+.page.is-inview
+  .hero-title__part
+    span, .hero-title__word
+      opacity: 1
+      transform: translateY(0px)
+
+    .hero-title__rotate
+      opacity: 1
+      transform: translateY(0px)
+
+  .hero-title__image
+    img
+      transform: scale(1.2)
+    &:before
+      transform: scaleX(0)
+  .hero-title__word
+    &:before
+      transform: scaleX(1)
+
+.scalable
+  max-width: 1160px
+  margin-left: auto
+  margin-right: auto
+
+.hero-title
+  display: flex
+  flex-direction: column
+  height: 100%
+  align-items: stretch
+  justify-content: center
+  line-height: 1.12
+  letter-spacing: -.06em
+  cursor: default
+
+  +media-up(lg)
+    line-height: .95
+
+  +media-up(xl)
+    line-height: .88
+
+.hero-title__part
+  display: flex
+  align-items: baseline
+  font-size: 300px
+  letter-spacing: -.06em
+
+.hero-title__image
+  flex-shrink: 0
+
+.hero-title__part--1
+  margin-left: -28px
+
+.hero-title__part--1 .hero-title__image
+  width: 410px
+  height: 140px
+  position: relative
+  top: 7px
+  left: 9px
+
+.hero-title__part--2
+  margin-left: -14px
+  font-size: 144px
+  position: relative
+  top: -10px
+
+.hero-title__part--3
+  gap: 21px
+  line-height: .88
+  font-size: 248px
+
+.hero-title__part--3 .hero-title__image
+  width: 301px
+  height: 142px
+  margin-top: 0
+  bottom: -10px
+  margin-left: 8px
+  left: 0
+  align-self: self-start
+
+.hero-title__part--3 .hero-title__rotate
+  font-size: 92px
+  top: -22px
+  left: -6px
+  position: relative
+
++media-up(md)
+  .hero-title__part
+    display: flex
+    align-items: baseline
+    font-size: 184px
+    letter-spacing: -.06em
+
+  .hero-title__image
+    flex-shrink: 0
+
+  .hero-title__part--1
+    margin-left: -10px
+
+  .hero-title__part--1 .hero-title__image
+    width: 410px
+    height: 140px
+    position: relative
+    top: 7px
+    left: 9px
+
+  .hero-title__part--2
+    margin-left: -14px
+    font-size: 144px
+    top: 0
+
+  .hero-title__part--3
+    gap: 21px
+    line-height: .88
+
+  .hero-title__part--3 .hero-title__image
+    width: 301px
+    height: 142px
+    margin-top: 0
+    bottom: -10px
+    margin-left: 8px
+    left: 0
+    align-self: self-start
+
+  .hero-title__part--3 .hero-title__rotate
+    rotate: 0deg
+    top: -1px
+    left: 0
+    font-size: 48px
+
++media-up(lg)
+  .hero-title__part
+    display: flex
+    align-items: baseline
+    font-size: 144px
+    letter-spacing: -.06em
+
+  .hero-title__part--1 .hero-title__image
+    width: 355px
+    height: 120px
+    position: relative
+    top: 4px
+    left: 9px
+
+  .hero-title__part--2
+    margin-left: -14px
+
+  .hero-title__part--3
+    gap: 21px
+    line-height: .88
+
+  .hero-title__part--3 .hero-title__image
+    width: 301px
+    height: 120px
+    margin-top: 0
+    bottom: -4px
+    margin-left: 8px
+    left: 0
+    align-self: self-start
+
+  .hero-title__part--3 .hero-title__rotate
+    font-size: 48px

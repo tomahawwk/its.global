@@ -1,0 +1,68 @@
+@import "mixins-media"
+@import "mixins-animations"
+@import "responsive-mixin"
+@import "../utilities/grid"
+
+=container($paddingX: var(--side-padding))
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  padding-left: $paddingX
+  padding-right: $paddingX
+
+// TT Norms
+=norms($weight: r)
+  @if $weight == r
+    font-family: 'TT Norms'
+    font-weight: 400
+  @if $weight == m
+    font-family: 'TT Norms'
+    font-weight: 500
+  @if $weight == b
+    font-family: 'TT Norms'
+    font-weight: 700
+
+// Typo mixins
+=section-title
+  font-weight: 500
+  +yo('font-size', (425px: 10px, 1440px: 14px))
+  letter-spacing: .08em
+  text-transform: uppercase
+
+  +media-up(lg)
+    letter-spacing: .06em
+
+=reset($element)
+  @if $element == button
+    padding: 0
+    border: 0 none
+    appearance: none
+    box-shadow: none
+    background: none
+    cursor: pointer
+
+=flow-margin($margin: 0px, $marginLast: $margin)
+  &:first-child
+    margin-top: $margin
+
+  &:last-child
+    margin-bottom: $marginLast
+
+=transitionScaleXReverse
+  transition-duration: .8s
+  transform: scaleX(1)
+  transform-origin: right
+  transition-timing-function: $ease-out
+
+=transitionScaleX
+  transition-duration: .8s
+  transform: scaleX(0)
+  transform-origin: left
+  transition-timing-function: $ease-out
+
+=pseudo-block($width: auto, $height: $width)
+  width: $width
+  height: $height
+  content: ''
+  display: block
+  position: absolute

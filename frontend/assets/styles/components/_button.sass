@@ -1,0 +1,40 @@
+
+.button
+  +reset(button)
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid var(--intense)
+  transition: background-color var(--duration-md), color var(--duration-md), border-color var(--duration-md), translate var(--duration-md)
+
+.button:hover
+  border-color: var(--voice)
+  background-color: var(--voice)
+
+.button--circle
+  --size: clamp(8.5rem, 15vw, 10rem)
+  width: var(--size)
+  height: var(--size)
+  border-radius: 10rem
+  font-size: clamp(2rem, 5vw, 2.25rem)
+  line-height: 1.22
+  will-change: transform
+  white-space: nowrap
+
+.button > a
+  text-decoration: none
+  color: inherit
+
+.button-wrap
+  position: relative
+  display: block
+
+.button-wrap__area
+  position: absolute
+  inset: -3rem
+  border-radius: 10rem
+  z-index: 1
+
+.button-wrap:hover .button
+  border-color: var(--voice)
+  background-color: var(--voice)

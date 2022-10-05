@@ -1,57 +1,68 @@
-# 🚀 Getting started with Strapi
-
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
-
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
-
+## Frontend
 ```
-npm run develop
-# or
-yarn develop
+cd /frontend
+
+yarn
+
+yarn dev - Развернуть локально
+
+yarn generate - Сбилдить
 ```
 
-### `start`
+## Backend
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
-
+### Развернуть на локалке
 ```
-npm run start
-# or
-yarn start
-```
+cd /backend
 
-### `build`
+Поместить .env файл из заметок в корень
 
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+yarn
 
-```
-npm run build
-# or
-yarn build
+yarn dev - Развернуть локально
 ```
 
-## ⚙️ Deployment
+### Деплой на хероку (пока нет сервера)
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+```
+heroku login
 
-## 📚 Learn more
+cd /backend
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+git add .
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+git commit -am "Коммит с изменением"
 
-## ✨ Community
+git push heroku master
+```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+## Админка
 
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+### Создать блок
+1. Разворачиваем админку локально (см. Backend)
+2. Переходим по http://localhost:1337/admin/
+3. Переходим в Content-Type Builder и создаем новый single type
+![создаем новый single type](guide-img/1.png)
+4. Выбираем поле Component
+![Выбираем поле Component](guide-img/2.png)
+5. Если в Components есть нужный компонент, то выбираем "Use an existing component".
+Если нет, то "Create a new component".
+![Выбираем поле Component](guide-img/3.png)
+5. Выбираем тип компонента и именуем. Если хотим создать пополняемый список компонентов, то выбираем Reapetable, если поле предназначено для еденичного компонента, то Single.
+![Выбираем тип компонента](guide-img/4.png)
+6. Жмем Save и ждем, пока изменения зафиксируются.
+![ждем](guide-img/5.png)
+7. Идём в Settings - Roles - Public.
+![Идём в Settings - Roles - Public](guide-img/6.png)
+8. Ищем блок Permissions. Находим там наш Single type и выставляем галочку Find. Сохраняем. Теперь компонент доступен для обращения через /api или /graphql
+![Ищем блок Permissions](guide-img/7.png)
+9. Идем в Content Manager. В Syngle types находим наш блок и добавляем контент. 
+![Идем в Content Manager.](guide-img/8.png)
+10. Заполняем все нужные поля, сохраняем и публикуем.
+![Заполняем все нужные поля и сохраняем.](guide-img/9.png)
+11. Переходим в плейграунд graphql по http://localhost:1337/graphql/ и пишем запрос за данными на языке graphql. В области справа будет отображаться ошибка или полученные данные в формате JSON. Эта площадка нужна для проверки правильности запроса. Если все правильно - копируем graphql запрос.
+![graphql](guide-img/10.png)
+12. Переходим по пути "frontend/graphql/queries" и создаем файл для нашего запроса. Оформляем, как на скрине ниже.
+![Оформляем запрос](guide-img/11.png)
+13. Используем, где нам нужно. P.S.: для списков ещё выводим в graphql id(генерируется самим strapi), чтобы прокинуть в key
+![Используем](guide-img/12.png)

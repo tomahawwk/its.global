@@ -1,0 +1,152 @@
+.services
+	+container
+	display: grid
+
+	@media (min-width: $md)
+		grid-template-columns: 6fr 4fr
+		grid-gap: 60px
+
+	&.is-inview
+		.services__title, .services__item img, .services__item_title
+			opacity: 1
+			transform: translateY(0)
+
+		.services__item
+			&:before
+				transform: scaleX(1)
+
+.services__image
+	height: 32vh
+	overflow: hidden
+	position: relative
+	border-radius: 8px
+	img
+		width: 100%
+		object-fit: cover
+		height: 110%
+		position: absolute
+		top: -5%
+		left: 0
+
+	@media (min-width: $md)
+		height: auto
+		min-height: 65vh
+
+.services__title
+	+section-title
+	+transitionY
+	transition-delay: .2s
+
+.services__content
+	margin-top: 70px
+	margin-bottom: 50px
+	display: flex
+	flex-direction: column
+	grid-gap: 20px
+
+	+media-up(md)
+		margin-top: 50px
+		margin-bottom: 50px
+
+.services__list
+	margin-top: 7px
+
+.services__item
+	padding: 20px 0
+	position: relative
+
+	&:first-child
+		padding-top: 0
+
+	&:last-child
+		padding-bottom: 0
+		&:before
+			display: none
+
+	&:nth-child(1)
+		.services__item_title
+			transition-delay: .25s
+		img
+			transition-delay: .35s
+		&:before
+			transition-delay: .5s
+
+	&:nth-child(2)
+		.services__item_title
+			transition-delay: .35s
+		img
+			transition-delay: .45s
+		&:before
+			transition-delay: .6s
+
+	&:nth-child(3)
+		.services__item_title
+			transition-delay: .45s
+		img
+			transition-delay: .55s
+		&:before
+			transition-delay: .7s
+
+	img
+		width: 30px
+		height: 30px
+		+transitionY
+
+.services__item
+
+	+media-up(md)
+		padding-top: 26px
+		padding-bottom: 26px
+
+	+media-up(lg)
+		padding-top: 30px
+		padding-top: 30px
+
+		&:before
+			content: ''
+			position: absolute
+			left: 0
+			bottom: 0
+			width: 100%
+			background: rgba(0,0,0,.1)
+			height: 1px
+			+transitionScaleX
+
+.services__item_head
+	display: flex
+	cursor: pointer
+	justify-content: space-between
+
+.services__item_title
+	font-size: 26px
+	font-weight: 500
+	letter-spacing: 0
+	+transitionY
+
+	+media-up(md)
+		font-size: 32px
+		letter-spacing: .02em
+		font-weight: 400
+
+	+media-up(lg)
+		font-size: 36px
+
+.services__item_head img
+	transition: rotate var(--duration-lg) $cubic-io, transform var(--duration-lg) $cubic-io, opacity var(--duration-lg) $cubic-io
+
+.services__item.is-current .services__item_head img
+	rotate: 90deg
+	transition-delay: 0s
+
+.services__item_content
+	letter-spacing: 0
+	font-size: 16px
+	line-height: 1.3
+
+	p
+		padding-top: 10px
+
+	+media-up(lg)
+		font-size: 18px
+		line-height: 1.5
+		letter-spacing: .02em
